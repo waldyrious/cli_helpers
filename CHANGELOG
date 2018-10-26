@@ -6,6 +6,7 @@ Version TBD
 
 (released on TBD)
 
+* Fix issue with writing non-ASCII characters to config files.
 * Run tests on Python 3.7.
 
 Version 1.1.0
