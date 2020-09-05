@@ -4,8 +4,8 @@ Changelog
 TBD
 ---
 
-* Remove dependency on terminaltables
-* Add psql_unicode table format
+* Remove dependency on terminaltables.
+* Add psql_unicode table format.
 
 Version 2.1.0
 -------------
@@ -19,7 +19,7 @@ Version 2.0.1
 
 (released on 2020-05-27)
 
-* Fix newline escaping in plain-text formatters (ascii, double, github)
+* Fix newline escaping in plain-text formatters (ascii, double, github).
 * Use built-in unittest.mock instead of mock.
 
 Version 2.0.0
@@ -47,7 +47,8 @@ Version 1.2.0
 
 * Run tests on Python 3.7.
 * Use twine check during packaging tests.
-* Rename old tsv format to csv-tab (because it add quotes), introduce new tsv output adapter.
+* Rename old tsv format to csv-tab (because it adds quotes);
+  introduce new tsv output adapter.
 * Truncate long fields for tabular display.
 * Return the supported table formats as unicode.
 * Override tab with 4 spaces for terminal tables.
@@ -65,9 +66,9 @@ Version 1.0.2
 
 (released on 2018-04-07)
 
-* Copy unit test from pgcli
-* Use safe float for unit test
-* Move strip_ansi from tests.utils to cli_helpers.utils
+* Copy unit test from pgcli.
+* Use safe float for unit test.
+* Move strip_ansi from tests.utils to cli_helpers.utils.
 
 Version 1.0.1
 -------------
@@ -81,8 +82,8 @@ Version 1.0.0
 
 (released on 2017-10-11)
 
-* Output as generator
-* Use backports.csv only for py2
+* Output as generator.
+* Use backports.csv only for py2.
 * Require tabulate as a dependency instead of using vendored module.
 * Drop support for Python 3.3.
 
@@ -123,7 +124,7 @@ Version 0.2.0
 * Add test coverage reports.
 * Add ability to pass additional preprocessors when formatting output.
 * Don't install tests.tabular_output.
-* Add .gitignore
+* Add .gitignore file.
 * Coverage for tox tests.
 * Style formatted output with Pygments (optional).
 * Fix issue where tabulate can't handle ANSI escape codes in default values.
