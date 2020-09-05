@@ -13,6 +13,10 @@ import tabulate
 
 tabulate.MIN_PADDING = 0
 
+# Based on psql's unicode linestyle.
+# https://www.postgresql.org/docs/current/static/app-psql.html#:~:text=linestyle
+# Mostly equivalent to terminaltable's SingleTable format
+# https://robpol86.github.io/terminaltables/singletable.html
 tabulate._table_formats['psql_unicode'] = tabulate.TableFormat(
     lineabove=tabulate.Line("┌", "─", "┬", "┐"),
     linebelowheader=tabulate.Line("├", "─", "┼", "┤"),
@@ -24,6 +28,8 @@ tabulate._table_formats['psql_unicode'] = tabulate.TableFormat(
     with_header_hide=None,
 )
 
+# Based on terminaltable's DoubleTable format
+# https://robpol86.github.io/terminaltables/doubletable.html
 tabulate._table_formats['double'] = tabulate.TableFormat(
     lineabove=tabulate.Line("╔", "═", "╦", "╗"),
     linebelowheader=tabulate.Line("╠", "═", "╬", "╣"),
@@ -35,6 +41,8 @@ tabulate._table_formats['double'] = tabulate.TableFormat(
     with_header_hide=None,
 )
 
+# Based on terminaltable's AsciiTable format
+# https://robpol86.github.io/terminaltables/asciitable.html
 tabulate._table_formats["ascii"] = tabulate.TableFormat(
     lineabove=tabulate.Line("+", "-", "+", "+"),
     linebelowheader=tabulate.Line("+", "-", "+", "+"),

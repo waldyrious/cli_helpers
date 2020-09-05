@@ -34,10 +34,12 @@ OutputFormatHandler = namedtuple(
 class TabularOutputFormatter(object):
     """An interface to various tabular data formatting libraries.
 
-    The formatting libraries supported include:
+    The supported output formats include:
       - `tabulate <https://bitbucket.org/astanin/python-tabulate>`_
-      - `terminaltables <https://robpol86.github.io/terminaltables/>`_
-      - a CLI Helper vertical table layout
+      - psql_unicode, double and ascii, roughly equivalent to
+        `terminaltables <https://robpol86.github.io/terminaltables/>`_'
+        SingleTable, DoubleTable, and AsciiTable
+      - a custom vertical table layout
       - delimited formats (CSV and TSV)
 
     :param str format_name: An optional, default format name.

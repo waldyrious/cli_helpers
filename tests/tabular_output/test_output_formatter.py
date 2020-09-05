@@ -40,7 +40,7 @@ def test_tabular_output_formatter():
 
 
 def test_tabular_format_output_wrapper():
-    """Test the format_output wrapper."""
+    """Test the format_output() wrapper."""
     data = [['1', None], ['2', 'Sam'],
             ['3', 'Joe']]
     headers = ['id', 'name']
@@ -60,6 +60,7 @@ def test_tabular_format_output_wrapper():
 def test_additional_preprocessors():
     """Test that additional preprocessors are run."""
     def hello_world(data, headers, **_):
+        # Sample preprocessor that changes the exact value "hello" to "hello, world"
         def hello_world_data(data):
             for row in data:
                 for i, value in enumerate(row):
