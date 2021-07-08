@@ -16,32 +16,268 @@ if HAS_PYGMENTS:
 
 def test_tabulate_wrapper():
     """Test the *output_formatter.tabulate_wrapper()* function."""
-    data = [['abc', 1], ['d', 456]]
+
     headers = ['letters', 'number']
-    output = tabulate_adapter.adapter(iter(data), headers, table_format='psql')
-    assert "\n".join(output) == dedent('''\
+    data = [['abc', 1], ['d', 456]]
+
+    print("\n===> ascii: expected output")
+    expected_output = dedent('''\
         +---------+--------+
         | letters | number |
-        |---------+--------|
-        | abc     |      1 |
-        | d       |    456 |
+        +---------+--------+
+        | abc     | 1      |
+        | d       | 456    |
         +---------+--------+''')
+    print(expected_output)
+    print("\n===> ascii: actual output")
+    actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='ascii'))
+    print(actual_output)
+    assert actual_output == expected_output
 
-    data = [['abc', 1], ['d', 456]]
-    headers = ['letters', 'number']
-    output = tabulate_adapter.adapter(iter(data), headers, table_format='psql_unicode')
-    assert "\n".join(output) == dedent('''\
-        ┌─────────┬────────┐
-        │ letters │ number │
-        ├─────────┼────────┤
-        │ abc     │      1 │
-        │ d       │    456 │
-        └─────────┴────────┘''')
+    # print("\n===> double: expected output")
+    # expected_output = dedent('''\
+    #     ╔═════════╦════════╗
+    #     ║ letters ║ number ║
+    #     ╠═════════╬════════╣
+    #     ║ abc     ║      1 ║
+    #     ║ d       ║    456 ║
+    #     ╚═════════╩════════╝''')
+    # print(expected_output)
+    # print("\n===> double: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='double'))
+    # print(actual_output)
+    # assert actual_output == expected_output
+
+    # print("\n===> fancy_grid: expected output")
+    # expected_output = dedent('''\
+    #     ╒═════════╤════════╕
+    #     │ letters │ number │
+    #     ╞═════════╪════════╡
+    #     │ abc     │      1 │
+    #     ├─────────┼────────┤
+    #     │ d       │    456 │
+    #     ╘═════════╧════════╛''')
+    # print(expected_output)
+    # print("\n===> fancy_grid: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='fancy_grid'))
+    # print(actual_output)
+    # assert actual_output == expected_output
+
+    # print("\n===> github: expected output")
+    # expected_output = dedent('''\
+    #     | letters | number |
+    #     |---------|--------|
+    #     | abc     |      1 |
+    #     | d       |    456 |''')
+    # print(expected_output)
+    # print("\n===> github: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='github'))
+    # print(actual_output)
+    # assert actual_output == expected_output
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     +---------+--------+
+    #     | letters | number |
+    #     +=========+========+
+    #     | abc     |      1 |
+    #     +---------+--------+
+    #     | d       |    456 |
+    #     +---------+--------+''')
+    # print(expected_output)
+    # print("\n===> github: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='grid'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     +---------+--------+
+    #     | letters | number |
+    #     +=========+========+
+    #     | abc     |      1 |
+    #     +---------+--------+
+    #     | d       |    456 |
+    #     +---------+--------+''')
+    # print(expected_output)
+    # print("\n===> github: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='html'))
+    # assert actual_output == expected_output
+
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     letters  number
+    #     -------  ------
+    #     abc           1
+    #     d           456''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # # TODO actually matches the simple format???
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='jira'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     || letters || number ||
+    #     | abc | 1 |
+    #     | d | 456 |''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='jira'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output =
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='latex'))
+    # assert actual_output == expected_output
+    # dedent('''\
+    #     letters	number
+    #     abc    	     1
+    #     d      	   456''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+
+    # print("\n===> ____: expected output")
+    # expected_output =
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='latex_booktabs'))
+    # assert actual_output == expected_output
+    # dedent('''\
+    #     letters	number
+    #     abc    	     1
+    #     d      	   456''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+
+    # print("\n===> ____: expected output")
+    # expected_output =
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='mediawiki'))
+    # assert actual_output == expected_output
+    # dedent('''\
+    #     |_.  letters |_. number |
+    #     | abc  | 1 |
+    #     | d  | 456 |''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     || \'\'\' letters \'\'\' || \'\'\' number \'\'\' ||
+    #     ||  abc  ||  1  ||
+    #     ||  d  ||  456  ||''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='moinmoin'))
+    # assert actual_output == expected_output
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     | letters | number |
+    #     |---------+--------|
+    #     | abc     |      1 |
+    #     | d       |    456 |''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='orgtbl'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     | letters | number |
+    #     |:--------|-------:|
+    #     | abc     |      1 |
+    #     | d       |    456 |''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='pipe'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     letters  number
+    #     abc           1
+    #     d           456''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='plain'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     +---------+--------+
+    #     | letters | number |
+    #     |---------+--------|
+    #     | abc     |      1 |
+    #     | d       |    456 |
+    #     +---------+--------+''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='psql'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     ┌─────────┬────────┐
+    #     │ letters │ number │
+    #     ├─────────┼────────┤
+    #     │ abc     │      1 │
+    #     │ d       │    456 │
+    #     └─────────┴────────┘''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='psql_unicode'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     =======  ======
+    #     letters  number
+    #     =======  ======
+    #     abc           1
+    #     d           456
+    #     =======  ======''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='rst'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     letters  number
+    #     -------  ------
+    #     abc           1
+    #     d           456''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='simple'))
+    # assert actual_output == expected_output
+
+
+    # print("\n===> ____: expected output")
+    # expected_output = dedent('''\
+    #     |_.  letters |_. number |
+    #     | abc  | 1 |
+    #     | d  | 456 |''')
+    # print(expected_output)
+    # print("\n===> _____: actual output")
+    # actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='textile'))
+    # assert actual_output == expected_output
+
 
     data = [['{1,2,3}', '{{1,2},{3,4}}', '{å,魚,текст}'], ['{}', '<null>', '{<null>}']]
     headers = ['bigint_array', 'nested_numeric_array', '配列']
-    output = tabulate_adapter.adapter(iter(data), headers, table_format='psql')
-    assert "\n".join(output) == dedent('''\
+    actual_output = "\n".join(tabulate_adapter.adapter(iter(data), headers, table_format='psql'))
+    assert actual_output == expected_output
+    expected_output = dedent('''\
         +--------------+----------------------+--------------+
         | bigint_array | nested_numeric_array | 配列         |
         |--------------+----------------------+--------------|

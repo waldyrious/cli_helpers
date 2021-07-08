@@ -6,6 +6,7 @@ TBD
 
 * Remove dependency on terminaltables.
 * Add psql_unicode table format.
+* Remove ascii table format as a near-duplicate of the psql format.
 
 Version 2.1.0
 -------------

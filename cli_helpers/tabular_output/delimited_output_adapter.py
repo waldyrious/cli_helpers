@@ -6,10 +6,10 @@ import contextlib
 
 from cli_helpers.compat import csv, StringIO
 from cli_helpers.utils import filter_dict_by_key
-from .preprocessors import bytes_to_string, override_missing_value
+from .preprocessors import bytes_to_string, override_missing_value, escape_newlines
 
 supported_formats = ('csv', 'csv-tab')
-preprocessors = (override_missing_value, bytes_to_string)
+preprocessors = (override_missing_value, bytes_to_string, escape_newlines)
 
 
 class linewriter(object):

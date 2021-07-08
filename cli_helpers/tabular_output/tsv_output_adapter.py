@@ -3,12 +3,12 @@
 
 from __future__ import unicode_literals
 
-from .preprocessors import bytes_to_string, override_missing_value, convert_to_string
+from .preprocessors import bytes_to_string, override_missing_value, convert_to_string, escape_newlines
 from itertools import chain
 from cli_helpers.utils import replace
 
 supported_formats = ('tsv',)
-preprocessors = (override_missing_value, bytes_to_string, convert_to_string)
+preprocessors = (override_missing_value, bytes_to_string, convert_to_string, escape_newlines)
 
 def adapter(data, headers, **kwargs):
     """Wrap the formatting inside a function for TabularOutputFormatter."""
